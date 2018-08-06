@@ -63,7 +63,7 @@ public class BubblePictures: NSObject {
     
     private func truncateCells(configFiles: [BPCellConfigFile]) {
         self.configFilesTruncated = []
-        if configFiles.count < maxNumberOfBubbles {
+        if configFiles.count < maxNumberOfBubbles || configFiles.count == 1 {
             configFilesTruncated = configFiles
             return
         }
