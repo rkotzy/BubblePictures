@@ -126,7 +126,11 @@ public class BubblePictures: NSObject {
         guard let maxNumberPreferredByUser = layoutConfigurator.maxNumberOfBubbles else {
             return calculationMaxNumberOfBubbles
         }
-        return min(maxNumberPreferredByUser + 1, calculationMaxNumberOfBubbles)
+        if calculationMaxNumberOfBubbles < 0 {
+            return maxNumberPreferredByUser
+        } else {
+            return min(maxNumberPreferredByUser + 1, calculationMaxNumberOfBubbles)
+        }
     }
     internal class var bubblePicturesBundle: Bundle? {
         let podBundle = Bundle(for: self)
